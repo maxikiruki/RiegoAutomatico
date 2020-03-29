@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class HistoryController extends AbstractController
 {
     /**
-     * @Route("/history", name="history")
+     * @Route("/history", name="history_index")
      */
     public function index()
     {
