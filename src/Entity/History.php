@@ -70,7 +70,8 @@ class History
 
     public function getStartTime(): ?\DateTimeInterface
     {
-        return $this->start_time;
+        // return $this->start_time;
+        return $this->start_time->format('H:i');
     }
 
     public function setStartTime(\DateTimeInterface $start_time): self

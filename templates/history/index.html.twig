@@ -40,8 +40,9 @@
 					{% endfor %}
 					
 					<td>{{ history.date ? history.date|date('d-m-Y') }}</td>
-					{# <td>{{ history.start_time ? history.start_time|date(' H:i A') }}</td>
-                    <td>{{ history.end_time ? history.end_time|date(' h:i A') }}</td> 
+					<td>{{ history.start_time|date('H:i') }}</td>
+					{# <td>{{ history.start_time ? history.start_time|date(' H:i A') }}</td> #}
+					{# <td>{{ history.end_time ? history.end_time|date(' h:i A') }}</td> 
 					<td>{{ history.humidity_initial }}</td>
 					<td>{{ history.humidity_final }}</td>
 					<td>{{ history.total_liters }}</td> #}
