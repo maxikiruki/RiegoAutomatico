@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+{% if user.username is defined %}
+    Hola,    
+  {{ user.username }}
+{% endif %}
+
+{% endblock %}
+{% block stylesheets %}
+
+  <link href="{{ asset('css/index.css') }}" rel="stylesheet" />
+ 
+{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+{% include "navbar/basenavbar.html.twig" %} 
+<div class="container-fluid"
+  <br><br><br><br><br>
+  <div class="row-xs-12 row-sm-12 row-md-12 row-lg-12"> 
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">    
+      <h3>¿QUE QUIERES HACER?</h3>
+    </div>
+    <br><br>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">    
+      <h4><a href="{{ path('history_index') }}">Ver historial de riegos</a></h4>
+    </div>
+    <br>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">    
+      <h4><a href="{{ path('state') }}">Ver estado de riego</a></h4>
+    </div>
+    <br>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">    
+      <h4><a href="{{ path('sector') }}">Ver configuración de riego</a></h4>
+    </div>
+    <br><br><br>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">    
+      <h4><a href="{{ path('schedule_new') }}">Solicitar horario</a></h4>
+    </div>
+    <br>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">    
+      <h4><a href="{{ path('incidence') }}">Reportar incidencia</a></h4>
+    </div>
+    <br>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">    
+      <h4 id="logout"><a href="{{ path('app_logout') }}">Cerrar sesión</a></h4>
+    </div>
+  </div>
+
+</div>
+
+
+
+{% endblock %}

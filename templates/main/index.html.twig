@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+{% if user.username is defined %}
+    Hola,    
+  {{ user.username }}
+  {% else %}
+	Riego Facil
+	{% endif %}
+
+{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+   {% set admin = false %}
+    {% if user.roles is defined %}
+      {% for rol in user.roles %}
+        {% if rol == 'ROLE_ADMIN' %}
+          {% set admin = true %}
+        {% endif %}
+      {% endfor %}
+      {% if admin == true %}
+        {# Redireccionar al admin #}
+        
+      {% else %}
+        {{ include('main/user.html.twig') }}       
+      {% endif %}
+      {% else %}
+        {# no tiene roles  muestro el landing page#}
+        {{ include('main/landing.html.twig') }}
+          
+    {% endif %}
+{% endblock %}

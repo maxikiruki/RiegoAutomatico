@@ -1,0 +1,58 @@
+<div class="container content-invoice">
+	<div class="load-animate animated fadeInUp">
+		<div class="row">
+			<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+				<h1>Crear nuevo usuario</h1>
+			</div>
+		</div>
+		<div class="row">
+			
+			
+			<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                <h3>DATOS DE ACCESO</h3>
+				{{ form_label(form.username) }}
+			    {{ form_widget(form.username) }}
+				{{ form_label(form.password) }}
+                {{ form_widget(form.password) }}
+                
+			</div>
+			<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 pull-right">
+				<h3>DATOS DE CONTACTO</h3>
+		        {{ form_label(form.email) }}
+                {{ form_widget(form.email) }}
+                {{ form_label(form.phone) }}
+                {{ form_widget(form.phone) }}
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<table class="table table-striped" id="invoiceItem">
+					<tr>
+						<th width="20px"><input id="checkAll" class="formcontrol" type="checkbox"></th>
+						<th width="100px">Nombre del sector</th>
+						<th width="40px">Pin Valvula</th>
+						<th width="40px">Pin Humedad</th>
+						<th width="40px">Pin Caudal</th>
+						<th width="80px">ID_horario</th>
+					</tr>
+					<tr>
+						<td><input class="itemRow" type="checkbox"></td>
+						<td><input type="text" name="sectorName[]" id="sectorName_1" class="form-control" autocomplete="off"><div class="suggestions" id="suggestions_1"></div></td>
+						<td><input type="number" name="valve[]" id="valve_1" min="0" pattern="^[0-9]+" class="form-control valve" autocomplete="off"></td>
+						<td><input type="number" step="any" name="humedity[]" id="humedity_1" min="0" pattern="^[0-9]+" class="form-control humedity" autocomplete="off"></td>
+						<td><input type="number" step="any" name=" flowmeter[]" id="flowmeter" class=" form-control flowmeter" min="0" pattern="^[0-9]+" autocomplete="off"></td>
+						<td><input type="number" readonly step="any" name="total[]" min="0" pattern="^[0-9]+" id="total_1" class="form-control total" autocomplete="off"></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 mt-5">
+				<button class="btn btn-danger delete" id="removeRows" type="button">- Borrar</button>
+				<button class="btn btn-success" id="addRows" type="button">+ Agregar Más</button>
+			</div>
+		</div>
+		
+		<div class="clearfix"></div>
+	</div>
+</div>

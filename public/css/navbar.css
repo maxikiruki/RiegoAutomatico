@@ -1,0 +1,73 @@
+/* nav {
+    background-color: #353535;
+    color: #4FBF6A;
+}
+
+
+.navbar {
+    background-color: #353535;
+    color: #4FBF6A;
+}
+
+#navbarNavDropdown>ul>li>h5 {
+    font-weight: bold;
+    color: #4FBF6A;
+}
+
+#navbarNavDropdown>ul>li>h5>#logout {
+    text-decoration: none;
+    color: #fd0000;
+}
+
+#navbarNavDropdown>ul>li>h5>#logout:hover,
+#navbarNavDropdown>ul>li>h5>#logout:focus {
+    color: #00B9FF;
+}
+
+#navbarNavDropdown>ul>li>h5>a,
+#navbarNavDropdown>ul>li>h5>a:hover,
+#navbarNavDropdown>ul>li>h5>a:focus {
+    text-decoration: none;
+    color: #4FBF6A;
+}
+
+#navbarNavDropdown>ul>li>h5>a:hover,
+#navbarNavDropdown>ul>li>h5>a:focus {
+    color: #00B9FF;
+}
+*/
+
+.navbar {
+    /* background-color: #353535; */
+    color: #4FBF6A;
+}
+
+#navbarNavDropdown>div>h5>a {
+    font-weight: bold;
+    text-decoration: none;
+    color: #4FBF6A;
+}
+
+#navbarNavDropdown>div>h5>a:hover,
+#navbarNavDropdown>div>h5>a:focus {
+    color: #00B9FF;
+}
+
+#navbarNavDropdown>div>h5>#logout {
+    text-decoration: none;
+    color: #fd0000;
+}
+
+#navbarNavDropdown>div>h5>#logout:hover,
+#navbarNavDropdown>div>h5>#logout:focus {
+    color: #00B9FF;
+}
+
+.navbar-toggler-icon {
+    background-image: url("images/sandwich.webp");
+}
+
+#navbarNavDropdown {
+    background-color: #353535;
+    border-radius: 25px;
+}

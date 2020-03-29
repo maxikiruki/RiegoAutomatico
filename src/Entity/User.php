@@ -44,6 +44,11 @@ class User implements UserInterface
      */
     private $email;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $password;
+
     public function __construct()
     {
         $this->sectors = new ArrayCollection();
@@ -166,6 +171,13 @@ class User implements UserInterface
     public function setEmail(?string $email): self
     {
         $this->email = $email;
+
+        return $this;
+    }
+
+    public function setPassword(string $password): self
+    {
+        $this->password = $password;
 
         return $this;
     }

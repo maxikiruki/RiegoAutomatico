@@ -1,0 +1,107 @@
+{% block stylesheets %}
+
+  <link href="{{ asset('css/navbar.css') }}" rel="stylesheet" />
+ 
+{% endblock %}
+
+<div class="navbar navbar-expand-lg">
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    	<span class="navbar-toggler-icon">
+        <img src="images/sandwich.png">
+      </span>
+  	</button>
+  	<div class="collapse navbar-collapse" id="navbarNavDropdown">
+		<div class="col-xs-1 col-sm-2 col-md-2 col-lg-2 text-center">    
+      		<h5><a href="{{ path('main') }}">Inicio</a></h5>
+    	</div>
+    	<br>
+    	<div class="col-xs-1 col-sm-2 col-md-2 col-lg-2 text-center">    
+      		<h5><a href="{{ path('history_index') }}">Ver historial de riego</a></h5>
+    	</div>
+    	<br>
+    	<div class="col-xs-1 col-sm-2 col-md-2 col-lg-2 text-center">    
+      		<h5><a href="{{ path('state') }}">Ver estado del riego</a></h5>
+    	</div>
+    	<br><br><br>
+    	<div class="col-xs-1 col-sm-2 col-md-2 col-lg-2 text-center">    
+      		<h5><a href="{{ path('schedule_new') }}">Solicitar horario</a></h5>
+    	</div>
+    	<br>
+    	<div class="col-xs-1 col-sm-2 col-md-2 col-lg-2 text-center">    
+      		<h5><a href="{{ path('incidence') }}">Reportar incidencia</a></h5>
+    	</div>
+		<div class="col-xs-1 col-sm-2 col-md-2 col-lg-2 text-center">    
+      		<h5 ><a id="logout" href="{{ path('app_logout') }}">Cerrar sesión</a></h5>
+    	</div>
+	</div>
+</div>
+
+{# <nav class="navbar navbar-expand-lg">
+  
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="{{ path('main') }}">Inicio</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ path('state') }}">Ver estado de riego</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ path('sector') }}">Ver configuracion de riego</a>
+      </li>
+      <li class="nav-item">
+       	<a class="nav-link" href="{{ path('sector') }}">Ver configuracion de riego</a>
+      </li> 
+	  <li class="nav-item">
+        <a class="nav-link" href="{{ path('incidence') }}">Reportar incidencia</a>
+      </li> 
+	  <li class="nav-item">
+        <a class="nav-link" id="logout" href="{{ path('app_logout') }}">Cerrar sesión</a>
+      </li>
+    </ul>
+  </div>
+</nav> #}
+
+{# <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+       
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="d-flex mx-auto flex-column flex-lg-row align-items-center">
+              <ul class="navbar-nav  ">
+                <li class="nav-item active">
+                  <a class="nav-link" href="{{ path('main') }}">Inicio</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ path('state') }}">Ver estado de riego</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ path('sector') }}">Ver configuracion de riego</a>
+                </li>
+            
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ path('incidence') }}">Reportar incidencia</a>
+                </li>
+
+				<li class="nav-item">
+                  <a class="nav-link" href="{{ path('schedule_new') }}">Solicitar horario</a>
+                </li>
+
+				<li class="nav-item">
+                  <a class="nav-link" id="logout" href="{{ path('app_logout') }}">Cerrar sesión</a>
+                </li>
+              </ul>
+            </div>
+            
+          </div>
+        </nav>
+      </div>
+    </header> #}

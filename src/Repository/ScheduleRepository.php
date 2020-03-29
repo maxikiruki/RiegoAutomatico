@@ -47,4 +47,16 @@ class ScheduleRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function findVisible()
+    {
+        return $this->createQueryBuilder('s')
+            ->andWhere('s.visible = :val')
+            ->setParameter('val', true )
+            ->orderBy('s.id', 'ASC')
+            // ->setMaxResults(10)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 }

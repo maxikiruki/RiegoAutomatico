@@ -1,0 +1,19 @@
+<div class="row navbar">
+	<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+		<h5>Hola {{ user.username }}</h5>
+	</div>
+	<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" id="date">
+		<h5>Son las {{ "now"|date(' h:i A') }}</h5>
+			</div>
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+		<h5>Hoy es {{ "now"|date('l') }} {{ "now"|date("d/m/Y") }} </h5>
+	</div>
+</div>
+
+{% block javascripts %}
+    <script>
+        function actualizar(){location.reload(true);}
+        setInterval("actualizar()",30000); 
+    
+    </script>    
+{% endblock %}

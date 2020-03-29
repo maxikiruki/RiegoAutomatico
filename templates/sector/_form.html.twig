@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="row">
+        {{ form_start(form) }}
+        <div class="col-md-4">
+            {{ form_row(form.name, {'label': 'Nombre'}) }}
+        </div>
+        <div class="col-md-4">
+            <label for="schedule[]">Horario</label>
+            <select class="form-control" id="schedule[]" name="schedule[]">
+	            <option value=""></option>
+                {% for schedule in schedules %}
+		            <option value="{{schedule.id}}">{{ schedule_name }}</option>
+	            {% endfor %}
+            </select>
+            <script>
+	            var id = document.querySelector("#schedule\\[\\]").options.length;
+                for (i = 0; i < id; i ++) {
+                    {% if sector.schedule.id is defined %}
+	                    if ("{{ sector.schedule.id  }}" == document.querySelector("#schedule\\[\\]").options[i].text) {
+	                        document.querySelector("#schedule\\[\\]").selectedIndex = i;
+                        if ("{{ sector.schedule.id  }}" == document.querySelector("#schedule\\[\\]").options[i].text) {
+	                        document.querySelector("#info").text = {{ schedule.description }};    
+                    {% endif %}
+                }
+            </script>
+        </div>
+        <input type="text" readonly class="col-md-4" id="info">
+
+        </input>
+    </div>
+    <div class="row">
+        <button class="btn">{{ button_label|default('Guardar cambios') }}</button>
+        {{ form_end(form) }}
+    </div>
+</div>

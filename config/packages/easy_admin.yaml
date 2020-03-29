@@ -4,3 +4,34 @@
 #        - App\Entity\Product
 #        - App\Entity\Category
 #        - App\Entity\User
+easy_admin:
+   entities:
+        User:
+            display_name: true
+            name_property_path: user
+            class: App\Entity\User
+            label: 'User'
+         
+        Sector:
+            display_name: true
+            name_property_path: sector
+            class: App\Entity\Sector
+            label: 'Sector'
+        
+        State:
+            display_name: true
+            name_property_path: state
+            class: App\Entity\State
+            label: 'State'
+
+        Schedule:
+            display_name: true
+            name_property_path: schedule
+            class: App\Entity\Schedule
+            label: 'Schedule'
+
+        History:
+            display_name: true
+            name_property_path: history
+            class: App\Entity\History
+            label: 'History'

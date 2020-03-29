@@ -1,0 +1,24 @@
+{# {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }} #}
+
+
+{{ form_start(form) }}
+{{ form_widget(form) }}
+
+{{ form_label(form.username) }}
+{{ form_widget(form.username) }}
+{{ form_label(form.password) }}
+{{ form_widget(form.password) }}
+{{ form_label(form.email) }}
+{{ form_widget(form.email) }}
+{{ form_label(form.sectors) }}
+{{ form_widget(form.sectors) }}
+{{ form_label(form.phone) }}
+{{ form_widget(form.phone) }}
+
+
+
+<button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}

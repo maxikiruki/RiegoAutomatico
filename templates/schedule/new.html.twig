@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Solicitar nuevo horario{% endblock %}
+
+{% block body %}
+    <h1>Configuración del horario</h1>
+
+    {{ include('schedule/_form.html.twig') }}
+
+    <a href="{{ path('main') }}">Cancelar</a>
+{% endblock %}

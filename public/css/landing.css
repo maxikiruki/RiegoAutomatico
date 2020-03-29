@@ -1,0 +1,373 @@
+body {
+    font-family: "Roboto", sans-serif;
+    color: #0c0c0c;
+    background-color: #ffffff;
+}
+
+.layout_padding {
+    padding: 75px 0;
+}
+
+.layout_padding2 {
+    padding: 45px 0;
+}
+
+.layout_padding2-top {
+    padding-top: 45px;
+}
+
+.layout_padding2-bottom {
+    padding-bottom: 45px;
+}
+
+.layout_padding-top {
+    padding-top: 75px;
+}
+
+.layout_padding-bottom {
+    padding-bottom: 75px;
+}
+
+.custom_heading-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.custom_heading-container h2 {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.custom_heading-container hr {
+    width: 250px;
+    border: none;
+    height: 1.5px;
+    background-color: #4FBF6A;
+    margin: 0 5px 0.5rem 5px;
+}
+
+
+/*header section*/
+
+.hero_area {
+    position: relative;
+}
+
+.sub_page .hero_area {
+    height: auto;
+}
+
+.hero_area.sub_pages {
+    height: auto;
+}
+
+.header_section {
+    background-color: #353535;
+    padding: 10px 0;
+}
+
+.header_section .container-fluid {
+    padding-right: 25px;
+    padding-left: 25px;
+}
+
+.header_section .nav_container {
+    margin: 0 auto;
+}
+
+.header_section .quote_btn-container a {
+    color: #ffffff;
+}
+
+.header_section .quote_btn-container a img {
+    margin-right: 10px;
+}
+
+.header_section .quote_btn-container a span {
+    margin: 0 10px 0 20px;
+}
+
+.custom_nav-container.navbar-expand-lg .navbar-nav .nav-link {
+    padding: 10px 20px;
+    color: #dbdada;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.custom_nav-container.navbar-expand-lg .navbar-nav .nav-link:hover {
+    color: #4FBF6A;
+    ;
+}
+
+a,
+a:hover,
+a:focus {
+    text-decoration: none;
+    color: #4FBF6A;
+}
+
+a:hover,
+a:focus {
+    color: initial;
+}
+
+.btn,
+.btn:focus {
+    outline: none !important;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.navbar-brand,
+.navbar-brand:hover {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.navbar-brand {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.navbar-brand img {
+    width: 40px;
+    margin-right: 5px;
+}
+
+.navbar-brand span {
+    font-size: 20px;
+    font-weight: 700;
+    color: #4FBF6A;
+    margin-left: 5px;
+}
+
+.custom_nav-container {
+    z-index: 99999;
+    padding: 5px 0;
+}
+
+.custom_nav-container .navbar-toggler {
+    outline: none;
+}
+
+.custom_nav-container .navbar-toggler .navbar-toggler-icon {
+    background-image: url(../images/menu.png);
+    background-size: 40px;
+}
+
+
+/*end header section*/
+
+
+/* slider section */
+
+#caption {
+    width: 100%;
+    color: #fff;
+    margin: 0;
+    padding: 5px;
+    background-color: rgba(0, 0, 0, .5);
+    /* asignar el color y  transparencia */
+    position: absolute;
+    bottom: 0;
+}
+
+
+/*end slider section*/
+
+
+/*start about section*/
+
+.about_section {
+    font-family: "Poppins", sans-serif;
+}
+
+.about_section .row {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.about_section a {
+    display: inline-block;
+    padding: 8px 25px;
+    background-color: #4FBF6A;
+    border: 1px solid #000000;
+    color: #ffffff;
+    border-radius: 25px;
+    margin-top: 45px;
+}
+
+.about_section a:hover {
+    background-color: #353535;
+    color: #ffffff;
+}
+
+.about_section p {
+    margin-top: 45px;
+}
+
+.about_section .img-box img {
+    width: 100%;
+}
+
+.about_section h6 {
+    text-transform: uppercase;
+    color: #bdbbbb;
+    font-weight: bold;
+    margin: 0;
+}
+
+
+/*end about section*/
+
+
+/*start contact section */
+
+.contact_section .contact_form-container input {
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #000;
+    width: 90%;
+    margin: 15px 0;
+    background-color: transparent;
+}
+
+.contact_section .contact_form-container input::-webkit-input-placeholder {
+    color: #595959;
+    font-size: 14px;
+}
+
+.contact_section .contact_form-container input:-ms-input-placeholder {
+    color: #595959;
+    font-size: 14px;
+}
+
+.contact_section .contact_form-container input::-ms-input-placeholder {
+    color: #595959;
+    font-size: 14px;
+}
+
+.contact_section .contact_form-container input::placeholder {
+    color: #595959;
+    font-size: 14px;
+}
+
+.contact_section .contact_form-container input.message_input {
+    margin-top: 80px;
+}
+
+.contact_section .contact_form-container button {
+    border: none;
+    background-color: #4FBF6A;
+    color: #fff;
+    font-size: 15px;
+    padding: 15px 55px;
+    border-radius: 30px;
+    text-transform: uppercase;
+}
+
+.contact_section .contact_form-container button:hover {
+    background-color: #353535;
+}
+
+.contact_section .map-box #map {
+    width: 100%;
+    height: 100%;
+}
+
+.contact_items {
+    margin: 0 auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+
+.contact_items .item {
+    width: 250px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    text-align: center;
+}
+
+.contact_items .item .img-box {
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.contact_items .item .detail-box {
+    color: #5e5e5e;
+}
+
+.contact_items .item .detail-box p {
+    margin: 0;
+}
+
+.contact_items {
+    position: relative;
+}
+
+.contact_items a {
+    position: relative;
+}
+
+.contact_items .item .img-box.box-1 {
+    background-image: url(../images/location.png);
+}
+
+.contact_items .item .img-box.box-2 {
+    background-image: url(../images/telephone.png);
+}
+
+.contact_items .item .img-box.box-3 {
+    background-image: url(../images/envelope.png);
+}
+
+
+/*end contact section*/
+
+
+/*start info section*/
+
+.info_section {
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    background-color: #353535;
+    color: #ffffff;
+}
+
+.info_section .info_social {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    margin: 0 auto 20px auto;
+}
+
+.info_section p {
+    margin: 35px 0 0 0;
+}
+
+
+/*end info section*/

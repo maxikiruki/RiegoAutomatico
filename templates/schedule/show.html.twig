@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Schedule{% endblock %}
+
+{% block body %}
+    <h1>Schedule</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ schedule.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ schedule.name }}</td>
+            </tr>
+            <tr>
+                <th>Days</th>
+                <td>{{ schedule.days ? schedule.days|join(', ') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Start_time_morning</th>
+                <td>{{ schedule.startTimeMorning ? schedule.startTimeMorning|date('H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>End_time_morning</th>
+                <td>{{ schedule.endTimeMorning ? schedule.endTimeMorning|date('H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Start_time_afternoon</th>
+                <td>{{ schedule.startTimeAfternoon ? schedule.startTimeAfternoon|date('H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>End_time_afternoon</th>
+                <td>{{ schedule.endTimeAfternoon ? schedule.endTimeAfternoon|date('H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Visible</th>
+                <td>{{ schedule.visible ? 'Yes' : 'No' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('schedule_index') }}">back to list</a>
+
+    <a href="{{ path('schedule_edit', {'id': schedule.id}) }}">edit</a>
+
+    {{ include('schedule/_delete_form.html.twig') }}
+{% endblock %}
