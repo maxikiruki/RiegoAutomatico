@@ -1,0 +1,12 @@
+
+Mirar SYMFONY/COMPONENT/SWIFTMAILER
+
+Configurar correo de 
+	- landing page
+	- solicitar horario (arreglar error css)
+	- reportar incidencia
+Configurar switch que se meustren bien, y con ajax cambios en tiemp oreal en la base de datos
+
+Configuración de riego
+	- cambiar horario del sector
+	- cambiar nombre del sector

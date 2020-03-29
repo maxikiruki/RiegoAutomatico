@@ -1,11 +1,16 @@
 {% extends 'base.html.twig' %}
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.css') }}" />
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet" />
+{% endblock %}
 
 {% block title %}Solicitar nuevo horario{% endblock %}
 
 {% block body %}
     <h1>Configuración del horario</h1>
-
+    
     {{ include('schedule/_form.html.twig') }}
 
     <a href="{{ path('main') }}">Cancelar</a>
+
 {% endblock %}

@@ -19,11 +19,22 @@ tr:nth-child(even) {
     height: 20px;
 }
 
+a,
+a:hover,
+a:focus {
+    text-decoration: none;
+    color: #4FBF6A;
+}
+
+a:hover,
+a:focus {
+    color: initial;
+}
+
 
 /* FORMATOS DE LOS SWITCH */
 
-
-/* .lbl {
+.lbl {
     display: inline-block;
     width: 65px;
     height: 33px;
@@ -56,10 +67,11 @@ input[name*="switch"]:checked+.lbl {
 }
 
 input[name*="switch"] {
-    display: none; */
-
-
+    display: none;
 }
+
+
+/* 
 .lbl {
     width: 62px;
     height: 32px;
@@ -73,6 +85,7 @@ input[name*="switch"] {
     position: relative;
     border-radius: 16px;
 }
+
 .lbl:before {
     content: ' ';
     position: absolute;
@@ -84,6 +97,7 @@ input[name*="switch"] {
     z-index: 1;
     border-radius: 16px;
 }
+
 .lbl:after {
     content: ' ';
     height: 29px;
@@ -99,13 +113,16 @@ input[name*="switch"] {
     -webkit-box-shadow: 0 2px 5px #999999;
     box-shadow: 0 2px 5px #999999;
 }
+
 .lblOn,
 .lblOn:before {
     background: #4cd964 !important;
 }
+
 .lblOn:after {
     left: 36px !important;
 }
+
 input[name*="switch"] {
     display: none;
-}
+} */

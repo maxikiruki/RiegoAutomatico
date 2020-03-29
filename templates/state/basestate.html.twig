@@ -25,20 +25,20 @@
 						<input type="checkbox" id="switchMan_{{ counter }}" checked="{{ state.onoff }}" name="switchMan">
 						<label for="switchMan_{{ counter }}" class="lbl">
 					</td> 
-					{% if state.onoff %}
+					{# {% if state.onoff %}
 					 <script>
 						document.querySelector("#switchMan_{{ counter }}").checked="true";
 					</script> 
-					{% endif %}   
+					{% endif %}    #}
 					{# Si tiene un schedule configurado es TRUE, #switchPro = checked #}
 					 <td>
 						<input type="checkbox" id="switchPro_{{ counter }}" checked="{{ state.programmed }}" name="switchPro">
 						<label for="switchPro_{{ counter }}" class="lbl"> 
 					</td>
-					{% if state.programmed %}<script>
+					{# {% if state.programmed %}<script>
 						document.querySelector("#switchPro_{{ counter }}").checked="true";
 					</script>
-					{% endif %}
+					{% endif %} #}
 				</tr>
 				<tr>
 					<td>{{ state.sector }}</td>
@@ -58,7 +58,13 @@
 
 
 
- 
+
+
+
+
+{#       FUNCIONA CON LA SEGUNDA PARTE DE LOS ESTILOS     #}
+
+{#  
 <script>
 $(document).ready(function()
 {
@@ -69,7 +75,13 @@ $(document).ready(function()
 
 });
 </script> 
+ #}
 
+
+
+
+
+{#                      IDEA IDEA IDEA IDEA IDEA         #}
 
 {# <script>
 $(document).ready(function()
