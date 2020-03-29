@@ -24,27 +24,27 @@ class History
     /**
      * @ORM\Column(type="time")
      */
-    private $start_time;
+    public $start_time;
 
     /**
      * @ORM\Column(type="time")
      */
-    private $end_time;
+    public $end_time;
 
     /**
      * @ORM\Column(type="integer")
      */
-    private $start_humidity;
+    public $start_humidity;
 
     /**
      * @ORM\Column(type="integer")
      */
-    private $final_humidity;
+    public $final_humidity;
 
     /**
      * @ORM\Column(type="integer")
      */
-    private $total_liters;
+    public $total_liters;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Sector", inversedBy="histories")
@@ -90,7 +90,8 @@ class History
     {
         $this->end_time = $end_time;
 
-        return $this;
+        // return $this;
+        return $this->end_time->format('H:i');
     }
 
     public function getStartHumidity(): ?int
