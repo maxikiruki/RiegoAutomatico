@@ -21,15 +21,16 @@
 				<tr>
 					<td>{{ state.sector }}</td>
 					{# Si el estado manual es TRUE, #switchMan = checked #}
+					{# Si quito el checked sale false, al poner checked siempre sale activado #}
 					 <td>
 						<input type="checkbox" id="switchMan_{{ counter }}" checked="{{ state.onoff }}" name="switchMan">
 						<label for="switchMan_{{ counter }}" class="lbl">
 					</td> 
-					{# {% if state.onoff %}
+					{% if state.onoff %}
 					 <script>
-						document.querySelector("#switchMan_{{ counter }}").checked="true";
+						document.querySelector("#switchMan_{{ counter }}").setAttr(checked="true");
 					</script> 
-					{% endif %}    #}
+					{% endif %}   
 					{# Si tiene un schedule configurado es TRUE, #switchPro = checked #}
 					 <td>
 						<input type="checkbox" id="switchPro_{{ counter }}" checked="{{ state.programmed }}" name="switchPro">

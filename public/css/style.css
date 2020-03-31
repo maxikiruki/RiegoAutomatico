@@ -1,7 +1,7 @@
 body {
     font-family: "Roboto", sans-serif;
-    color: #4FBF6A;
-    text-align: center;
+    color: #4FBF6A !important;
+    text-align: center !important;
     /* justify-content: center; */
 }
 
