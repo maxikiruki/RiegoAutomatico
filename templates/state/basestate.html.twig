@@ -1,6 +1,6 @@
-
-{# {% extends 'base.html.twig' %} #}
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+ 
+{% extends 'base.html.twig' %}
+{% block body %}
 <div class="containter">
 	<div class="row-xs-12 row-sm-12 row-md-12 row-lg-12 justify-center">
 		<h1>Estado del riego</h1>
@@ -17,87 +17,73 @@
 		<tbody>
 			{% set counter = 0 %}
 			{% for state in states %}
-			{% set counter = counter + 1 %}
+			
 				<tr>
 					<td>{{ state.sector }}</td>
 					{# Si el estado manual es TRUE, #switchMan = checked #}
 					{# Si quito el checked sale false, al poner checked siempre sale activado #}
-					 <td>
-						<input type="checkbox" id="switchMan_{{ counter }}" checked="{{ state.onoff }}" name="switchMan">
-						<label for="switchMan_{{ counter }}" class="lbl">
-					</td> 
-					{% if state.onoff %}
-					 <script>
-						document.querySelector("#switchMan_{{ counter }}").setAttr(checked="true");
-					</script> 
+					
+					{% if state.getOnoff() %}
+						<td>
+							<input type="checkbox" id="switchMan_{{ counter }}" checked="true" 
+							name="switchMan"  data-name="{{ state.sector }}">
+							<label for="switchMan_{{ counter }}" class="lbl">
+						</td> 
+					{% else %}
+						<td>
+							<input type="checkbox" id="switchMan_{{ counter }}"
+							name="switchMan" data-name="{{ state.sector }}">
+							<label for="switchMan_{{ counter }}" class="lbl">
+						</td> 
+					
 					{% endif %}   
+					
+					
+					
 					{# Si tiene un schedule configurado es TRUE, #switchPro = checked #}
-					 <td>
-						<input type="checkbox" id="switchPro_{{ counter }}" checked="{{ state.programmed }}" name="switchPro">
-						<label for="switchPro_{{ counter }}" class="lbl"> 
-					</td>
-					{# {% if state.programmed %}<script>
-						document.querySelector("#switchPro_{{ counter }}").checked="true";
-					</script>
-					{% endif %} #}
+					
+					{% if state.getProgrammed() %}
+						<td>
+							<input type="checkbox" id="switchPro_{{ counter }}" checked="true" 
+							name="switchPro" data-name="{{ state.sector }}">
+							<label for="switchPro_{{ counter }}" class="lbl"> 
+						</td>
+					{% else %}
+						<td>
+							<input type="checkbox" id="switchPro_{{ counter }}" 
+							name="switchPro" data-name="{{ state.sector }}">
+							<label for="switchPro_{{ counter }}" class="lbl"> 
+						</td>
+					{% endif %}
 				</tr>
-				<tr>
-					<td>{{ state.sector }}</td>
-					<td>MAN{{ counter }} {{ dump(state.onoff) }}</td>
-					<td>PRO{{ counter }} {{ dump(state.programmed) }}</td>
-				</tr>
-
+			
+				
+			{% set counter = counter + 1 %}
 			{% endfor %}
 		</tbody>
 	</table>
 	
 </div>
 
-
-
-
-
-
-
-
-
-
-
-{#       FUNCIONA CON LA SEGUNDA PARTE DE LOS ESTILOS     #}
-
-{#  
 <script>
-$(document).ready(function()
-{
-	$('.lbl').click(function()
-	{
-		$(this).toggleClass("lblOn");
-	});
-
-});
-</script> 
- #}
-
-
-
-
-
-{#                      IDEA IDEA IDEA IDEA IDEA         #}
-
-{# <script>
-$(document).ready(function()
-{
-	$('.lbl').click(function()
-	{
-		if(document.querySelector(this).checked="true"){
-			$(this).addClass("lbl_true");
-			$(this).removeClass("lbl_false");
-
-		}else{
-			$(this).removeClass("lbl_true");
-		}
-	});
-
-});
-</script>  #}
-
+var checkbox = document.getElementById("foo"),
+    ajax = function(url){
+        var xhr = window.XMLHttpRequest ? 
+                  new XMLHttpRequest() : 
+                  new ActiveXObject("Microsoft.XMLHTTP") || 
+                  new ActiveXObject("Msxml2.XMLHTTP");
+ 
+        xhr.open("GET", url, true);
+        xhr.send(null);
+    };
+ 
+checkbox.addEventListener("click", function(){
+    var checked = this.checked ? 1 : 0, //Si está marcado, asigno 1 a 'checked', si no, 0
+        sector = this.getAttribute("data-name"), //El valor del pseudo-atributo 'data-id'
+		type= this.getAttribute("name"), //El valor del pseudo-atributo 'data-name', Si es el Onoff o el Programmed
+        url = "state_update/state=" + checked + "/sector=" + sector + "/type=" + type;
+ 
+    ajax(url); //Ejecuto la petición asíncrona, enviando los valores
+}, false);
+</script>
+{% endblock %}
