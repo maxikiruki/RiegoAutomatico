@@ -28,7 +28,7 @@
     	</div>
     	<br>
     	<div class="col-xs-1 col-sm-2 col-md-2 col-lg-2 text-center">    
-      		<h5><a href="{{ path('incidence') }}">Reportar incidencia</a></h5>
+      		<h5><a href="{{ path('incidence', {'username':  user.username }) }}">Reportar incidencia</a></h5>
     	</div>
 		<div class="col-xs-1 col-sm-2 col-md-2 col-lg-2 text-center">    
       		<h5 ><a id="logout" href="{{ path('app_logout') }}">Cerrar sesión</a></h5>

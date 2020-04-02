@@ -13,8 +13,6 @@ use Swift_Mailer;
 
 class MainController extends AbstractController
 {
-
-
     /**
      * @Route("/", name="main")
      */
@@ -32,53 +30,45 @@ class MainController extends AbstractController
             }
         }
 
-
         return $this->render('main/index.html.twig', [
             'controller_name' => 'MainController',
             'user' => $this->getUser(),
             'users' => $users
         ]);
     }
-    
+
     /**
      * @Route("/incidence/{username}", name="incidence", methods={"GET","POST"})
      */
-    public function incidence(Request $request, $username,Swift_Mailer $mailer)
+    public function incidence(Request $request, $username, Swift_Mailer $mailer)
     {
-        
-
-        
         $form = $this->createForm(IncidenceType::class);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            
             $repositoryUsers = $this->getDoctrine()->getRepository(User::class);
             $user = $repositoryUsers->findOneByUsername($username);
-            
-            // $descripcion=$form;
-        
+
+            // $descripcion=$_POST['form']['Descipcion'];
 
             //Enviar correo
-            // $message = (new \Swift_Message('Hello Email'))
-            //     ->setFrom('postmaster@localhost')
-            //     ->setTo($user->getEmail())
-            //     ->setBody($descripcion);
-               
-            // $mailer->send($message);
- 
-            // return $this->redirectToRoute('main');
-            return $this->render('main/debug.html.twig', [
-                'form' => $form,
-                
-            ]);
+            $message = (new \Swift_Message('Nueva Incidencia'))
+                ->setFrom('postmaster@localhost')
+                ->setTo($user->getEmail())
+                ->setBody($_POST['incidence']['Descripcion']);
+
+            $mailer->send($message);
+
+            return $this->redirectToRoute('main');
+            // return $this->render('main/debug.html.twig', [
+            //     'form' => $_POST['incidence']['Descripcion'],
+            // ]);
         }
-        $user=$username;
+        $user = $username;
 
         return $this->render('main/incidence.html.twig', [
             'form' => $form->createView(),
-            'user' => $user,
+            'user' => $user
         ]);
     }
-    
 }

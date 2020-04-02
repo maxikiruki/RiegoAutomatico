@@ -13,7 +13,7 @@ REPORTAR INCIDENCIA
 
 {{ form_start(form) }}
     {{ form_widget(form) }}
-    <button class="btn"><a href="{{ path('incidence',{'username': user}) }}">Enviar</a></button>
+    <button class="btn">{{ button_label|default('Enviar') }}</button>
 {{ form_end(form) }}
 
 <a href="{{ path('main') }}">Cancelar</a>

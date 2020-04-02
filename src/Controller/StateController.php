@@ -20,9 +20,11 @@ class StateController extends AbstractController
         $sectorRepository = $this->getDoctrine()->getRepository(Sector::class);
         $sectors = $sectorRepository->findAll();
 
+        
 
         return $this->render('state/index.html.twig', [
             'sectors' => $sectors,
+            'user' => $this->getUser(),
             'states' => $states,
         ]);
     }
@@ -64,6 +66,6 @@ class StateController extends AbstractController
         $entityManager->flush();
 
 
-
+        return $this->redirectToRoute('main');
     }
 }
