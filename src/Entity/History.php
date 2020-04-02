@@ -70,8 +70,8 @@ class History
 
     public function getStartTime(): ?\DateTimeInterface
     {
-        // return $this->start_time;
-        return $this->start_time->format('H:i');
+        return $this->start_time;
+        // return $this->start_time->format('H:i');
     }
 
     public function setStartTime(\DateTimeInterface $start_time): self
@@ -90,8 +90,8 @@ class History
     {
         $this->end_time = $end_time;
 
-        // return $this;
-        return $this->end_time->format('H:i');
+        return $this;
+        // return $this->end_time->format('H:i');
     }
 
     public function getStartHumidity(): ?int

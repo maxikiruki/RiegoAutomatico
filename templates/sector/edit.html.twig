@@ -3,11 +3,46 @@
 {% block title %}Editar sector{% endblock %}
 
 {% block body %}
-    <h1>Edit Sector {{ sector_name }}</h1>
+    <h1>Editar Sector {{ sector.name }}</h1>
 
-    {{ include('sector/_form.html.twig', {'button_label': 'Update'}) }}
+    {# {{ include('sector/_form.html.twig', {'button_label': 'Update'}) }} #}
 
-    <a href="{{ path('sector_index') }}">back to list</a>
+<div class="container">
+
+
+    <div class="row-xs-12 row-sm-12 row-md-12 row-lg-12">
+        {{ form_start(form) }}
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center"> 
+            {{ form_row(form.name) }}
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+            {{ form_row(form.schedule) }}
+        </div>
+       
+       
+            {# <script>
+	            var id = document.querySelector("#schedule\\[\\]").options.length;
+                for (i = 0; i < id; i ++) {
+                    {% if sector.schedule.id is defined %}
+	                    if ("{{ sector.schedule.id  }}" == document.querySelector("#schedule\\[\\]").options[i].text) {
+	                        document.querySelector("#schedule\\[\\]").selectedIndex = i;
+                        if ("{{ sector.schedule.id  }}" == document.querySelector("#schedule\\[\\]").options[i].text) {
+	                        document.querySelector("#info").text = {{ schedule.description }};    
+                    {% endif %}
+                }
+            </script> #}
+        </div>
+        
+    </div>
+    <div class="row">
+        <button class="btn">{{ button_label|default('Guardar cambios') }}</button>
+        {{ form_end(form) }}
+    </div>
+</div>
+
+
+    <a href="{{ path('sector') }}">back to list</a>
 
     
 {% endblock %}

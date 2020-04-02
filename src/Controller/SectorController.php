@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Schedule;
 use App\Entity\Sector;
+use App\Entity\State;
 use App\Form\SectorType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -36,8 +37,11 @@ class SectorController extends AbstractController
     /**
      * @Route("/{id}/edit", name="sector_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, Sector $sector): Response
+    public function edit(Request $request,  $id): Response
     {
+        $sectorRepository = $this->getDoctrine()->getRepository(Sector::class);
+        $sector = $sectorRepository->find($id);
+        
         $form = $this->createForm(SectorType::class, $sector);
         $form->handleRequest($request);
 
@@ -45,14 +49,28 @@ class SectorController extends AbstractController
         $schedulesVisible = $scheduleRepository->findVisible();
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
+            
+            //Buscar en el repositorio de los estados donde el sector = $sector y ahí setProgrammed false
+            $stateRepository = $this->getDoctrine()->getRepository(State::class);
+            $state = $stateRepository->findOneBySector($sector);
+            if($sector->getSchedule() == null){
+                $state->setProgrammed(false);
+            }elseif ($sector->getSchedule() != null){
+                $state->setProgrammed(true);
+            }
 
-            return $this->redirectToRoute('sector_index');
+            //GUARDAR CAMBIOS
+            // $entityManager = $this->getDoctrine()->getManager();
+            
+            // $entityManager->persist($state);
+            // $entityManager->flush();
+            $this->getDoctrine()->getManager()->flush();
+            return $this->redirectToRoute('sector');
         }
 
         return $this->render('sector/edit.html.twig', [
             'sector' => $sector,
-            'scheduleVisible' => $schedulesVisible,
+            'schedulesVisible' => $schedulesVisible,
             'form' => $form->createView(),
         ]);
     }

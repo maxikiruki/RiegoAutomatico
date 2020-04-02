@@ -24,7 +24,7 @@ class State
     /**
      * @ORM\Column(type="boolean")
      */
-    private $programmed;
+    public $programmed;
 
     /**
      * @ORM\OneToOne(targetEntity="App\Entity\Sector", inversedBy="state", cascade={"persist", "remove"})

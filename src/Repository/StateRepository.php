@@ -47,4 +47,14 @@ class StateRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function findOneBySector($sector)
+    {
+        return $this->createQueryBuilder('s')
+            ->andWhere('s.sector = :val')
+            ->setParameter('val', $sector )
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
+    }
 }

@@ -27,13 +27,11 @@
 		<tbody>
 			{% for sector in sectors %}
 				<tr>
+				
 					<td>{{ sector.id }}</td>
 					<td>{{ sector.name }}</td>
-                    {% for schedule in schedules %}
-                        {% if sector.schedule_id == schedule.id %}
-                            <td>{{ schedule.name }}</td>
-                        {% endif %}
-                    {% endfor %}
+					<td>{{ sector.getSchedule() }}</td>
+
 
                     <td><a href="{{ path('sector_edit',{'id': sector.id}) }}">Editar sector</a> </td>
 				</tr>
