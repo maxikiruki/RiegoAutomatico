@@ -3,11 +3,13 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Form\IncidenceType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Swift_Mailer;
 
 class MainController extends AbstractController
 {
@@ -39,27 +41,44 @@ class MainController extends AbstractController
     }
     
     /**
-     * @Route("/incidence", name="incidence")
+     * @Route("/incidence/{username}", name="incidence", methods={"GET","POST"})
      */
-    public function incidene()
+    public function incidence(Request $request, $username,Swift_Mailer $mailer)
     {
-        $repositoryUsers = $this->getDoctrine()->getRepository(User::class);
-        $users = $repositoryUsers->findAll();
+        
 
-        $user = $this->getUser();
-        if (isset($user)) {
-            foreach ($this->getUser()->getRoles() as $roles) {
-                if ($roles == 'ROLE_ADMIN') {
-                    return $this->redirectToRoute('easyadmin');
-                }
-            }
+        
+        $form = $this->createForm(IncidenceType::class);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            
+            $repositoryUsers = $this->getDoctrine()->getRepository(User::class);
+            $user = $repositoryUsers->findOneByUsername($username);
+            
+            // $descripcion=$form;
+        
+
+            //Enviar correo
+            // $message = (new \Swift_Message('Hello Email'))
+            //     ->setFrom('postmaster@localhost')
+            //     ->setTo($user->getEmail())
+            //     ->setBody($descripcion);
+               
+            // $mailer->send($message);
+ 
+            // return $this->redirectToRoute('main');
+            return $this->render('main/debug.html.twig', [
+                'form' => $form,
+                
+            ]);
         }
+        $user=$username;
 
-
-        return $this->render('main/index.html.twig', [
-            'controller_name' => 'MainController',
-            'user' => $this->getUser(),
-            'users' => $users
+        return $this->render('main/incidence.html.twig', [
+            'form' => $form->createView(),
+            'user' => $user,
         ]);
     }
+    
 }
