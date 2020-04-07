@@ -22,18 +22,21 @@
 					<td>{{ state.sector }}</td>
 					{# Si el estado manual es TRUE, #switchMan = checked #}
 					{# Si quito el checked sale false, al poner checked siempre sale activado #}
-					
+					{# <a href="{{ path('update', {'sector':  state.sector, 'type': 'programmed' }) }}"> #}
+
 					{% if state.getOnoff() %}
 						<td>
-							<input type="checkbox" id="switchMan_{{ counter }}" checked="true" 
-							name="switchMan"  data-name="{{ state.sector }}">
-							<label for="switchMan_{{ counter }}" class="lbl">
+							<input type="checkbox" checked="true" id="{{ state.id }}"
+							name="switchMan_{{ counter }}">
+							<label for="switchMan_{{ counter }}" class="lbl" name="switchMan"
+							id="{{ state.id }}">					
 						</td> 
 					{% else %}
 						<td>
-							<input type="checkbox" id="switchMan_{{ counter }}"
-							name="switchMan" data-name="{{ state.sector }}">
-							<label for="switchMan_{{ counter }}" class="lbl">
+							<input type="checkbox" id="{{ state.id }}"
+							name="switchMan_{{ counter }}">
+							<label for="switchMan_{{ counter }}" class="lbl" name="switchMan"
+							id="{{ state.id }}">					
 						</td> 
 					
 					{% endif %}   
@@ -44,15 +47,17 @@
 					
 					{% if state.getProgrammed() %}
 						<td>
-							<input type="checkbox" id="switchPro_{{ counter }}" checked="true" 
-							name="switchPro" data-name="{{ state.sector }}">
-							<label for="switchPro_{{ counter }}" class="lbl"> 
+							<input type="checkbox" id="{{ state.id }}" checked="true" 
+							name="switchPro">
+							<label for="switchPro_{{ counter }}" class="lbl" name="switchPro"
+							id="{{ state.id }}">
 						</td>
 					{% else %}
 						<td>
-							<input type="checkbox" id="switchPro_{{ counter }}" 
-							name="switchPro" data-name="{{ state.sector }}">
-							<label for="switchPro_{{ counter }}" class="lbl"> 
+							<input type="checkbox" id="{{ state.id }}" 
+							name="switchPro">
+							<label for="switchPro_{{ counter }}" class="lbl" name="switchPro"
+							id="{{ state.id }}">
 						</td>
 					{% endif %}
 				</tr>
@@ -65,25 +70,4 @@
 	
 </div>
 
-<script>
-var checkbox = document.getElementById("foo"),
-    ajax = function(url){
-        var xhr = window.XMLHttpRequest ? 
-                  new XMLHttpRequest() : 
-                  new ActiveXObject("Microsoft.XMLHTTP") || 
-                  new ActiveXObject("Msxml2.XMLHTTP");
- 
-        xhr.open("GET", url, true);
-        xhr.send(null);
-    };
- 
-checkbox.addEventListener("click", function(){
-    var checked = this.checked ? 1 : 0, //Si está marcado, asigno 1 a 'checked', si no, 0
-        sector = this.getAttribute("data-name"), //El valor del pseudo-atributo 'data-id'
-		type= this.getAttribute("name"), //El valor del pseudo-atributo 'data-name', Si es el Onoff o el Programmed
-        url = "state_update/state=" + checked + "/sector=" + sector + "/type=" + type;
- 
-    ajax(url); //Ejecuto la petición asíncrona, enviando los valores
-}, false);
-</script>
 {% endblock %}

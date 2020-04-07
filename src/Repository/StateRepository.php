@@ -57,4 +57,13 @@ class StateRepository extends ServiceEntityRepository
             ->getOneOrNullResult()
         ;
     }
+    public function findOneByID($id)
+    {
+        return $this->createQueryBuilder('s')
+            ->andWhere('s.id = :val')
+            ->setParameter('val', $id )
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
+    }
 }

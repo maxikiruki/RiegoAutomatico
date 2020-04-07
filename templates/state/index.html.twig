@@ -17,3 +17,7 @@
 
 
 {% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/state.js') }}"></script>    
+{% endblock %}

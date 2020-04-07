@@ -29,6 +29,7 @@ class SectorController extends AbstractController
 
             'sectors' => $sectors,
             'schedules' => $schedules,
+            'user' => $this->getUser(),
         ]);
     }
 

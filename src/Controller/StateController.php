@@ -30,42 +30,55 @@ class StateController extends AbstractController
     }
    
     /**
-     * @Route("/state_update/{checked}/{sector}/{type}", name="state_update", methods={"GET","POST"})
+     * @Route("/update_manual/{state}", name="update_manual", methods={"GET","POST"})
      */
-    public function update($checked, $sector, $type)
+    public function update_manual($state)
     {
-        //obtengo el sector
+        //obtengo el sector, como el state guarda el id del state, tengo que buscar en el repositorio de state por el id
+
         $stateRepository = $this->getDoctrine()->getRepository(State::class);
-        $state = $stateRepository->findOneBySector($sector);
-        //obtengo si lo tengo que poner true o false
-        $on_off=null;
-        if($checked == "0"){
-            $on_off=true;
-        }else{
-            $on_off=false;
-        }
-        //modifico en funcion del type
+        $stateCompleto = $stateRepository->findOneByID($state);
+
+        //modifico 
         $entityManager = $this->getDoctrine()->getManager();
 
-        if($type == "switchMan" && $on_off == true){
-            $state->setOnoff(true);
-        }
-        if($type == "switchMan" && $on_off == false){
-            $state->setOnoff(false);
+        if($stateCompleto->getOnOff()){
+            $stateCompleto->setOnoff(false);
+        }else{
+            $stateCompleto->setOnoff(true);
         }    
-        
-        if($type == "switchPro" && $on_off == true){
-            $state->setProgrammed(true);
-        }
-        if($type == "switchPro" && $on_off == false){
-            $state->setProgrammed(false);
-            $sector->setSchedule(null);
-        }
-        $entityManager->persist($sector);
-        $entityManager->persist($state);
+        $entityManager->persist($stateCompleto);
         $entityManager->flush();
 
 
-        return $this->redirectToRoute('main');
+        return $this->redirectToRoute('state');
+    }
+
+    /**
+     * @Route("/update_programmed/{state}", name="update_programmed", methods={"GET","POST"})
+     */
+    public function update_programmed($state)
+    {
+        //obtengo el sector, como el state guarda el id del state, tengo que buscar en el repositorio de state por el id
+        //luego obtengo el sector de ese estado.
+        $stateRepository = $this->getDoctrine()->getRepository(State::class);
+        $stateCompleto = $stateRepository->findOneByID($state);
+        $sector=$stateCompleto->getSector();
+
+        //modifico 
+        $entityManager = $this->getDoctrine()->getManager();
+
+        if($stateCompleto->getProgrammed()){
+            $stateCompleto->setProgrammed(false);
+            $sector->setSchedule(null);
+        }else{
+            $stateCompleto->setProgrammed(true);
+        }
+        $entityManager->persist($sector);
+        $entityManager->persist($stateCompleto);
+        $entityManager->flush();
+
+
+        return $this->redirectToRoute('state');
     }
 }

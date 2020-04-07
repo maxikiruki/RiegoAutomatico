@@ -19,7 +19,7 @@ class State
     /**
      * @ORM\Column(type="boolean")
      */
-    private $on_off;
+    public $on_off;
 
     /**
      * @ORM\Column(type="boolean")
