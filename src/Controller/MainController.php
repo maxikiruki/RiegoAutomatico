@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Form\ContactType;
 use App\Form\IncidenceType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -29,6 +30,9 @@ class MainController extends AbstractController
                 }
             }
         }
+
+
+
 
         return $this->render('main/index.html.twig', [
             'controller_name' => 'MainController',
@@ -70,5 +74,29 @@ class MainController extends AbstractController
             'form' => $form->createView(),
             'user' => $user
         ]);
+    }
+
+    /**
+     * @Route("/contact", name="contact", methods={"GET","POST"})
+     */
+    public function contact(Request $request, Swift_Mailer $mailer)
+    {
+        //RECOGER LOS DATOS DEL FORMULARIO
+        if (isset($_POST['Nombre'], $_POST['Correo'], $_POST['Telefono'], $_POST['Mensaje'])) {
+            $nombre=$_POST['Nombre'];
+            $correo=$_POST['Correo'];
+            $telefono=$_POST['Telefono'];
+            $mensaje=$_POST['Mensaje'];
+
+            //Enviar correo
+            $message = (new \Swift_Message('Nueva Consulta'))
+            ->setFrom('postmaster@localhost')
+            ->setTo("jaimenavarrol97@gmail.com")
+            ->setBody("Nombre: ".$nombre." Correo: ".$correo." Telefono: ".$telefono." Mensaje: ".$mensaje);
+
+            $mailer->send($message);
+        }
+        return $this->redirectToRoute('main');
+      
     }
 }
