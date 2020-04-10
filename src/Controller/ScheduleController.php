@@ -11,7 +11,9 @@ use Symfony\Component\Routing\Annotation\Route;
 
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Email;
-
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Swift_Mailer;
 
 class ScheduleController extends AbstractController
 {
@@ -28,7 +30,7 @@ class ScheduleController extends AbstractController
      /**
      * @Route("/new", name="schedule_new", methods={"GET","POST"})
      */
-    public function new(Request $request  ): Response
+    public function new(Request $request,Swift_Mailer $mailer ): Response
     {
         // MailerInterface $mailer
         $schedule = new Schedule();
@@ -44,15 +46,15 @@ class ScheduleController extends AbstractController
 
             // ENVIA UN CORREO AL ADMINISTRADOR PARA NOTIFICARLE QUE HAY UNA PROPUESTA 
             
-            // $mensaje="Hay un nueva propuesta de horario";
-            // $destino="jaimenavarrol97@gmail.com";
-            // $email = (new Email())
-            // ->from('postmaster@localhost')
-            // ->to($destino)
-            // ->subject('Nueva propuesta horaria');
-            // // ->html($mensaje);
-
-            // $mailer->send($email);
+             $mensaje="Hay un nueva propuesta de horario";
+             $micorreo="facilriego@gmail.com";
+                //Enviar correo
+                $message = (new \Swift_Message('Nueva Solicitud de Horario'))
+                ->setFrom($micorreo)
+                ->setTo("jaimenavarrol97@gmail.com")
+                ->setBody("Hay una neuva solicitud de horario");
+    
+                $mailer->send($message);
 
 
 

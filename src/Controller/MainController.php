@@ -57,7 +57,7 @@ class MainController extends AbstractController
 
             //Enviar correo
             $message = (new \Swift_Message('Nueva Incidencia'))
-                ->setFrom('postmaster@localhost')
+                ->setFrom('facilriego@gmail.com')
                 ->setTo($user->getEmail())
                 ->setBody($_POST['incidence']['Descripcion']);
 
@@ -90,7 +90,7 @@ class MainController extends AbstractController
 
             //Enviar correo
             $message = (new \Swift_Message('Nueva Consulta'))
-            ->setFrom('postmaster@localhost')
+            ->setFrom('facilriego@gmail.com')
             ->setTo("jaimenavarrol97@gmail.com")
             ->setBody("Nombre: ".$nombre." Correo: ".$correo." Telefono: ".$telefono." Mensaje: ".$mensaje);
 
