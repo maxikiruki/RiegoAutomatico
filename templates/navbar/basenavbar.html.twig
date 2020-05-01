@@ -6,7 +6,25 @@
 		<h5>Son las {{ "now"|date(' h:i A') }}</h5>
 			</div>
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-		<h5>Hoy es {{ "now"|date('l') }} {{ "now"|date("d/m/Y") }} </h5>
+		<h5>Hoy es  
+		{# {{ "now"|date('l') }} #}
+			{% if datee == "Monday" %}
+				Lunes 	
+			{% elseif datee == "Tuesday" %}
+				Martes 
+			{% elseif datee == "Wednesday" %}
+				Miercoles 
+			{% elseif datee == "Thursay" %}
+				Jueves 
+			{% elseif datee == "Friday" %}
+				Viernes 
+			{% elseif datee == "Saturday" %}
+				Sabado 
+			{% elseif datee == "Sunday" %}
+				Domingo 	
+			{% endif %}
+		
+		 {{ "now"|date("d/m/Y") }} </h5>
 	</div>
 </div>
 
