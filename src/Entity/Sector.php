@@ -58,6 +58,11 @@ class Sector
      */
     private $schedule;
 
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\Schedule", cascade={"persist", "remove"})
+     */
+    private $LastSchedule;
+
     public function __construct()
     {
         $this->histories = new ArrayCollection();
@@ -191,5 +196,17 @@ class Sector
     public function __toString()
     {
         return $this->name;
+    }
+
+    public function getLastSchedule(): ?Schedule
+    {
+        return $this->LastSchedule;
+    }
+
+    public function setLastSchedule(?Schedule $LastSchedule): self
+    {
+        $this->LastSchedule = $LastSchedule;
+
+        return $this;
     }
 }

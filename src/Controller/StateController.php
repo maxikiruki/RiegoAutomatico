@@ -70,9 +70,16 @@ class StateController extends AbstractController
 
         if($stateCompleto->getProgrammed()){
             $stateCompleto->setProgrammed(false);
+            $sector->setLastSchedule($sector->getSchedule());
             $sector->setSchedule(null);
+            
         }else{
-            $stateCompleto->setProgrammed(true);
+            $stateCompleto->setProgrammed(false);
+            if($sector->getLastSchedule() != NULL){
+                $sector->setSchedule($sector->getLastSchedule());
+                $stateCompleto->setProgrammed(true);
+            }
+            
         }
         $entityManager->persist($sector);
         $entityManager->persist($stateCompleto);
