@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -12,7 +13,7 @@ class IncidenceType extends AbstractType
     {
         $builder
 
-            ->add('Descripcion');
+            ->add('Descripcion', TextareaType::class, array('label' => "Descripcion del problema",'attr' => array('maxlength' => '200', 'rows' => '3','required' => true)));
     }
 
     public function configureOptions(OptionsResolver $resolver)

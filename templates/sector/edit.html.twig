@@ -13,14 +13,17 @@
     <div class="row-xs-12 row-sm-12 row-md-12 row-lg-12">
         {{ form_start(form) }}
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center"> 
-            {{ form_row(form.name) }}
+                {{ form_row(form.name, { 'label': 'Nombre' }) }}
+               
+            
         </div>
 
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-            {{ form_row(form.schedule) }}
+            {{ form_row(form.schedule, { 'label': 'Horario' }) }}
         </div>
        
-       
+        <div>
+            
             {# <script>
 	            var id = document.querySelector("#schedule\\[\\]").options.length;
                 for (i = 0; i < id; i ++) {
@@ -32,17 +35,19 @@
                     {% endif %}
                 }
             </script> #}
+        
         </div>
         
     </div>
-    <div class="row">
-        <button class="btn">{{ button_label|default('Guardar cambios') }}</button>
+     
+        <button id="guardar">{{ button_label|default('Guardar cambios') }}</button>
         {{ form_end(form) }}
-    </div>
+   
+    
 </div>
 
+    <button id="salir" onclick="window.location.href='{{ path('sector') }}'">Cancelar</button>
 
-    <a href="{{ path('sector') }}">back to list</a>
 
     
 {% endblock %}

@@ -7,10 +7,16 @@
 {% block title %}Solicitar nuevo horario{% endblock %}
 
 {% block body %}
-    <h1>Configuración del horario</h1>
+    <h1>Solicitar horario</h1>
     
-    {{ include('schedule/_form.html.twig') }}
+     {{ include('schedule/_form.html.twig') }} 
 
-    <a href="{{ path('main') }}">Cancelar</a>
+    
+    
+
+    <button id="guardar">{{ button_label|default('Enviar') }}</button>
+{{ form_end(form) }}
+    <button id="salir" onclick="window.location.href='{{ path('main') }}'">Cancelar</button>
+
 
 {% endblock %}

@@ -133,3 +133,36 @@ input[name*="switch"] {
 input[name*="switch"] {
     display: none;
 } */
+
+
+/*BOTONES Y HREF QUE SEAN DE ACEPTAR O RECHAZAR */
+
+#guardar,
+#guardar:hover,
+#guardar:focus {
+    text-decoration: none;
+    color: #4FBF6A;
+    background-color: #353535;
+}
+
+#guardar:hover,
+#guardar:focus {
+    color: #4FBF6A;
+    background-color: initial;
+    border-color: #353535;
+}
+
+#salir,
+#salir:hover,
+#salir:focus {
+    text-decoration: none;
+    color: red;
+    background-color: #353535;
+}
+
+#salir:hover,
+#salir:focus {
+    color: red;
+    background-color: initial;
+    border-color: #353535;
+}
