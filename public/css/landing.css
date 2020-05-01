@@ -117,9 +117,8 @@ a:focus {
 
 .btn,
 .btn:focus {
-    outline: none !important;
-    -webkit-box-shadow: none;
-    box-shadow: none;
+    text-decoration: none;
+    color: #4FBF6A;
 }
 
 .navbar-brand,
@@ -371,3 +370,44 @@ a:focus {
 
 
 /*end info section*/
+
+
+/*       MODAL             */
+
+#salir {
+    text-decoration: none;
+    color: red;
+}
+
+#salir:hover,
+#salir:focus {
+    color: black !important;
+}
+
+#seguir,
+#salir:hover,
+#salir:focus {
+    text-decoration: none;
+    color: #4FBF6A;
+}
+
+#seguir:hover,
+#seguir:focus {
+    color: initial;
+}
+
+#Aviso {
+    position: fixed;
+    /* Positioning and size */
+    top: 60px;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(128, 128, 128, 0.5);
+    /* color */
+    display: none;
+    /* making it hidden by default */
+}
+
+
+/*        FIN MODAL      */
