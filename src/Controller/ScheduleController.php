@@ -38,6 +38,8 @@ class ScheduleController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            //COMPROBAR DIFERENCIA DE HORAS
+
             $entityManager = $this->getDoctrine()->getManager();
             $schedule->setVisible(false);
             $schedule->setDescription("Sin aprobar");
