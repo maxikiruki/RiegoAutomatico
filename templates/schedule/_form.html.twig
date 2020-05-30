@@ -2,16 +2,54 @@
 
 
 {% block body %}
-{#
 {{ form_start(form) }}
 {{ form_widget(form) }}
-#} 
-{{ form_start(form) }}
+
+
+{# {{ form_start(form) }}
 {{form_label(form.name)}}
-{{form_widget(form.name)}}
+{{ form_widget(form.name,{'attr':{'id':'name'}}) }}
+
+{{form_label(form.description)}}
+{{ form_widget(form.description,{'attr':{'id':'description'}}) }}
+
+{{form_label(form.start_time_morning)}}
+{{ form_widget(form.start_time_morning,{'attr':{'id':'start_time_morning'}}) }}
+
+{{form_label(form.end_time_morning)}}
+{{ form_widget(form.end_time_morning,{'attr':{'id':'end_time_morning'}}) }}
+
+{{form_label(form.start_time_afternoon)}}
+{{ form_widget(form.start_time_afternoon,{'attr':{'id':'start_time_afternoon'}}) }}
+
+{{form_label(form.end_time_afternoon)}}
+{{ form_widget(form.end_time_afternoon,{'attr':{'id':'end_time_afternoon'}}) }}
+
+{{form_label(form.monday)}}
+{{ form_widget(form.monday,{'attr':{'id':'monday'}}) }}
+
+{{form_label(form.tuesday)}}
+{{ form_widget(form.tuesday,{'attr':{'id':'tuesday'}}) }}
+
+{{form_label(form.wednesday)}}
+{{ form_widget(form.wednesday,{'attr':{'id':'wednesday'}}) }}
+
+{{form_label(form.thursday)}}
+{{ form_widget(form.thursday,{'attr':{'id':'thursday'}}) }}
+
+{{form_label(form.friday)}}
+{{ form_widget(form.friday,{'attr':{'id':'friday'}}) }}
+
+{{form_label(form.saturday)}}
+{{ form_widget(form.saturday,{'attr':{'id':'saturday'}}) }}
+
+{{form_label(form.sunday)}}
+{{ form_widget(form.sunday,{'attr':{'id':'sunday'}}) }}
+
+
 
     <button id="guardar">{{ button_label|default('Enviar') }}</button>
 {{ form_end(form) }}
-    <button id="salir" onclick="window.location.href='{{ path('main') }}'">Cancelar</button>
+    <button id="salir" onclick="window.location.href='{{ path('main') }}'">Cancelar</button> #}
 
 {% endblock %}
