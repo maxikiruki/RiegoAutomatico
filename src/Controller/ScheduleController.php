@@ -39,6 +39,21 @@ class ScheduleController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             //COMPROBAR DIFERENCIA DE HORAS
+            
+            $init_morning=$_REQUEST['start_time_morning'];
+            
+            $final_morning=$_REQUEST[`end_time_morning`];
+            
+
+            if(($init_morning <= $_final_morning) ){
+                //return $this->redirectToRoute('schedule_new');
+                return $this->render('schedule/new.html.twig', [
+                    'schedule' => $schedule,
+                    'form' => $form->createView(),
+                ]);
+            }
+            
+
 
             $entityManager = $this->getDoctrine()->getManager();
             $schedule->setVisible(false);
