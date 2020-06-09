@@ -55,7 +55,7 @@
 
 #navbarNavDropdown>div>h5>#logout {
     text-decoration: none;
-    color: #fd0000;
+    color: red;
 }
 
 #navbarNavDropdown>div>h5>#logout:hover,
